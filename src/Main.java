@@ -1,18 +1,22 @@
+import Observer.FireStation;
+import Observer.SKKM;
+import Observer.WGS84;
+
 public class Main {
     public static void main(String[] args) {
 
-        Subject subject = new Subject();
+        SKKM subject = new SKKM();
 
-        Jednostka JRG1 = new Jednostka(new WGS84(50.059989, 19.943159));
-        Jednostka JRG2 = new Jednostka(new WGS84(50.033413, 19.935811));
-        Jednostka JRG3 = new Jednostka(new WGS84(50.527612, 20.258989));
-        Jednostka JRG4 = new Jednostka(new WGS84(50.037593, 20.005781));
-        Jednostka JRG5 = new Jednostka(new WGS84(50.092252, 19.919651));
-        Jednostka JRG6 = new Jednostka(new WGS84(50.015935, 20.015674));
-        Jednostka JRG7 = new Jednostka(new WGS84(50.046968, 20.004790));
-        Jednostka JRGSK = new Jednostka(new WGS84(49.973038, 19.825049));
-        Jednostka SAPSP = new Jednostka(new WGS84(52.237680, 21.330550));
-        Jednostka LSP = new Jednostka(new WGS84(50.070369, 19.800583));
+        FireStation JRG1 = new FireStation(new WGS84(50.059989, 19.943159));
+        FireStation JRG2 = new FireStation(new WGS84(50.033413, 19.935811));
+        FireStation JRG3 = new FireStation(new WGS84(50.527612, 20.258989));
+        FireStation JRG4 = new FireStation(new WGS84(50.037593, 20.005781));
+        FireStation JRG5 = new FireStation(new WGS84(50.092252, 19.919651));
+        FireStation JRG6 = new FireStation(new WGS84(50.015935, 20.015674));
+        FireStation JRG7 = new FireStation(new WGS84(50.046968, 20.004790));
+        FireStation JRGSK = new FireStation(new WGS84(49.973038, 19.825049));
+        FireStation SAPSP = new FireStation(new WGS84(52.237680, 21.330550));
+        FireStation LSP = new FireStation(new WGS84(50.070369, 19.800583));
 
 
         subject.addObserver(JRG1);
