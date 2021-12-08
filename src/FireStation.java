@@ -23,7 +23,7 @@ public class FireStation {
 
         while (available < neededUnits & fireEngineIterator.hasNext()) {
             FireEngine fireEngine = (FireEngine) fireEngineIterator.next();
-            available += fireEngine.call();
+            available += fireEngine.call(notification);
         }
 
         if (available == 0)

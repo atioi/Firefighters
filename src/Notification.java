@@ -1,6 +1,12 @@
 public class Notification {
+
+
     private final WGS84 localization;
     private final Type type;
+
+    // There is 5% probability that the alarm is a false alarm.
+    private final boolean falseAlarmFlag = (int) (Math.random() * 19 + 1) == 1;
+
 
     public enum Type {
         AF(-1), MZ(2), PZ(3);
@@ -29,5 +35,10 @@ public class Notification {
     public Type getType() {
         return type;
     }
+
+    public boolean isFalseAlarm() {
+        return falseAlarmFlag;
+    }
+
 }
 

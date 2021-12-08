@@ -4,6 +4,11 @@ import java.util.Scanner;
 import iterator.Iterable;
 import iterator.Iterator;
 
+
+
+/**
+ * SKKM and FireStation implements Observer Pattern where SKKM is the Subject and FireStations are observers.
+ * */
 public class SKKM {
 
     /**

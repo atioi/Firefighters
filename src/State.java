@@ -1,6 +1,6 @@
 
 public interface State {
-    int call(FireEngine fireEngine);
+    public int call(FireEngine fireEngine, Notification notification);
 
     void driveOut(FireEngine fireEngine);
 }
