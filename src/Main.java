@@ -1,3 +1,7 @@
+import system.FireStation;
+import system.SKKM;
+import system.WGS84;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -27,7 +31,7 @@ public class Main {
         skkm.addFireStation(SAPSP);
         skkm.addFireStation(LSP);
 
-
         skkm.listen();
+
     }
 }

@@ -1,4 +1,4 @@
-package strategy;
+package system.strategy;
 
 import static java.lang.Thread.sleep;
 

@@ -1,3 +1,5 @@
+package system;
+
 public class WGS84 {
     private final double x;
     private final double y;

@@ -1,14 +1,19 @@
-import strategy.IStrategy;
+package system.fireengine;
+
+import system.Notification;
+import system.fireengine.states.Available;
+import system.fireengine.states.State;
+import system.strategy.IStrategy;
 
 /**
- * FireEngine
+ * Represents fire engine.
  */
 public class FireEngine {
 
     private State state = new Available();
     private IStrategy strategy;
 
-    protected void setStrategy(IStrategy strategy) {
+    public void setStrategy(IStrategy strategy) {
         this.strategy = strategy;
     }
 
@@ -16,14 +21,18 @@ public class FireEngine {
         this.strategy.takeAction();
     }
 
-    protected void setState(State state) {
+    public void setState(State state) {
         this.state = state;
     }
 
-    protected void driveOut() {
+    public void driveOut() {
         this.state.driveOut(this);
     }
 
+
+    public boolean isAvailable() {
+        return this.state.isAvailable();
+    }
 
     public int call(Notification notification) {
         return this.state.call(this, notification);

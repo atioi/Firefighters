@@ -1,4 +1,4 @@
-package strategy;
+package system.strategy;
 
 public class GoBack implements IStrategy {
 

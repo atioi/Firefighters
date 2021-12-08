@@ -1,3 +1,7 @@
+package system;
+
+import system.FireStation;
+
 import java.util.Comparator;
 
 public class LocalizationComparator implements Comparator<FireStation> {

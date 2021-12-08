@@ -1,4 +1,9 @@
-public class Taken implements State {
+package system.fireengine.states;
+
+import system.fireengine.FireEngine;
+import system.Notification;
+
+public class Unavailable implements State {
 
     @Override
     public int call(FireEngine fireEngine, Notification notification) {
@@ -27,6 +32,11 @@ public class Taken implements State {
         };
 
         thread.start();
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return false;
     }
 
 }

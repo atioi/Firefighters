@@ -1,20 +1,31 @@
-import iterator.Iterable;
-import iterator.Iterator;
+package system;
+
+import system.fireengine.FireEngine;
+import system.iterator.Iterable;
 
 public class FireStation {
 
     private final WGS84 localization;
     private final Iterable<FireEngine> fireEngines = new Iterable<FireEngine>();
-    private final String NAME;
+    private final String name;
 
     public FireStation(WGS84 localization, String name) {
-        this.NAME = name;
+        this.name = name;
 
         this.localization = localization;
         for (int i = 0; i < 5; i++)
             fireEngines.add(new FireEngine());
     }
 
+    public void report() {
+        Iterator<FireEngine> iterator = fireEngines.iterator();
+        int available = 0;
+        while (iterator.hasNext())
+            if (iterator.next().isAvailable())
+                available++;
+
+        System.out.println(name + " | Available cars: " + available);
+    }
 
     public int call(Notification notification, int neededUnits) {
 
@@ -27,9 +38,9 @@ public class FireStation {
         }
 
         if (available == 0)
-            System.out.println(NAME + ": We don't have available fire engines.");
+            System.out.println(name + ": We don't have available fire engines.");
         else
-            System.out.println(NAME + ": Roger that. I send " + available + " fire engines.");
+            System.out.println(name + ": Roger that. I send " + available + " fire engines.");
 
         return available;
     }

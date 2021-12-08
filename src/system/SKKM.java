@@ -1,14 +1,13 @@
-import java.util.Comparator;
+package system;
+
 import java.util.Scanner;
 
-import iterator.Iterable;
-import iterator.Iterator;
-
+import system.iterator.Iterable;
 
 
 /**
- * SKKM and FireStation implements Observer Pattern where SKKM is the Subject and FireStations are observers.
- * */
+ * system.SKKM and system.FireStation implements Observer Pattern where system.SKKM is the Subject and FireStations are observers.
+ */
 public class SKKM {
 
     /**
@@ -21,14 +20,14 @@ public class SKKM {
 
 
     /**
-     * The fireStations is an iterable object that contains FireStation objects.
+     * The fireStations is an iterable object that contains system.FireStation objects.
      */
     private final Iterable<FireStation> fireStations = new Iterable<FireStation>();
 
 
     /**
-     * All notifications that comes to SKKM are processed here.
-     * This function call another one that call FireStation respectively.
+     * All notifications that comes to system.SKKM are processed here.
+     * This function call another one that call system.FireStation respectively.
      */
     private void processNotification(Notification notification) {
 
@@ -47,14 +46,20 @@ public class SKKM {
 
     }
 
-    /**
-     * FireStation represents observer.
-     */
+    private void askForReport() {
+        Iterator<FireStation> iterator = fireStations.iterator();
+        while (iterator.hasNext()) {
+            iterator.next().report();
+        }
+    }
+
+
     public void addFireStation(FireStation fireStation) {
         fireStations.add(fireStation);
     }
 
 
+    //TODO: Make it better looking.
     public void list() {
         System.out.println("PZ [1], MZ [2]");
     }
@@ -68,6 +73,7 @@ public class SKKM {
         Scanner scanner = new Scanner(System.in);
         list();
         while (scanner.hasNextLine()) {
+            askForReport();
             list();
             String line = scanner.nextLine();
             switch (line) {

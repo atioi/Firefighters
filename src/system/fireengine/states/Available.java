@@ -1,13 +1,16 @@
-import strategy.GoBack;
-import strategy.Help;
-import strategy.IStrategy;
+package system.fireengine.states;
+
+import system.fireengine.FireEngine;
+import system.Notification;
+import system.strategy.GoBack;
+import system.strategy.Help;
 
 public class Available implements State {
 
     @Override
     public int call(FireEngine fireEngine, Notification notification) {
 
-        fireEngine.setState(new Taken());
+        fireEngine.setState(new Unavailable());
 
         if (notification.isFalseAlarm()) fireEngine.setStrategy(new GoBack());
         else fireEngine.setStrategy(new Help());
@@ -18,6 +21,11 @@ public class Available implements State {
 
     public void driveOut(FireEngine fireEngine) {
 
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return true;
     }
 
 }
