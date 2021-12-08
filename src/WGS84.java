@@ -1,7 +1,4 @@
-package Observer;
-
 public class WGS84 {
-
     private final double x;
     private final double y;
 
@@ -23,5 +20,4 @@ public class WGS84 {
         double disY = this.y - point.getY();
         return Math.sqrt(disX * disX + disY * disY);
     }
-
 }
